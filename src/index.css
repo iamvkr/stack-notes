@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body{
+    @apply bg-dark-bg text-white
+  }
+
+  .animate-enter {
+    animation: animEnter 0.4s ease-out;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  }
+
+  .animate-exit {
+    animation: animExit 0.4s;
+  }
+
+  @keyframes animEnter {
+    0% {
+      transform: translate3d(0, -20%, 0) scale(.6);
+      opacity: .5;
+    }
+
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes animExit {
+    0% {
+      transform: translate3d(0, 0, -1px) scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate3d(0, -40%, -1px) scale(.6);
+      opacity: 0;
+    }
+  }
+
+}
+
+@theme {
+  --color-primary: #3be8b0;
+  --color-dark-bg: #0d1322;
+}
