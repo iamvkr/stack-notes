@@ -11,6 +11,7 @@ import FileView from './pages/FileView.tsx'
 import { usefileContext } from './context/FilesContext.tsx'
 import OpenFile from './pages/OpenFile.tsx'
 import PlayCourse from './pages/PlayCourse.tsx'
+import About from './pages/About.tsx'
 
 function App() {
   const { userName } = usefileContext();
@@ -26,6 +27,7 @@ function App() {
           <Route path="/openFile/:id" element={<OpenFile />} />
           <Route path='/course' element={<Course />} />
           <Route path='/course/:pid' element={<PlayCourse />} />
+          <Route path='/about' element={<About />} />
         </Routes>
         {userName && <BottomBar />}
       </Layout>

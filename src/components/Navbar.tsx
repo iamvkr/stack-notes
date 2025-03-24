@@ -1,6 +1,6 @@
-import { FileStack, MenuIcon, Trash } from 'lucide-react'
+import { FileStack, Info, Trash } from 'lucide-react'
 import { usefileContext } from '../context/FilesContext'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getDataFromFO, saveToDbFO, saveToDbFS } from '../lib/db';
 
 const Navbar = () => {
@@ -100,10 +100,10 @@ const Navbar = () => {
                 </div>
                     :
                     <div className='flex gap-x-4'>
-                        <MenuIcon className='lg:hidden' />
+                        <Link to={"/about"}><Info className='lg:hidden' /></Link>
                         <a href='#' className='hover:border-b-2 hidden lg:block'>Home</a>
                         <a href='#features_home' className='hover:border-b-2 hidden lg:block'>Features</a>
-                        <a href='#' className='hover:border-b-2 hidden lg:block'>About</a>
+                        <Link to={"/about"} className='hover:border-b-2 hidden lg:block'>About</Link>
                     </div>}
             </div>
         </nav>
