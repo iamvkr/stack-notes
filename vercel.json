@@ -56,7 +56,7 @@
     ],
     "rewrites": [
       {
-        "source": "/(.*\\.(?!pdf|jpg|jpeg|png|gif|css|ico|svg|txt)$)",
+        "source": "/(.*\\.(?!pdf|jpg|html|jpeg|png|gif|css|ico|svg|txt)$)",
         "destination": "/index.html"
       }
     ]

@@ -41,7 +41,7 @@ const OpenFile = () => {
             </div>}
 
             {fileData && pdfUrl && <div className="p-2 w-full h-[80vh] lg:h-[85vh] flex items-center rounded-2xl">
-                <iframe src={`/pdfjs/web/viewer.html?file=${pdfUrl}`} className='h-[75vh] lg:h-[80vh] w-full rounded-xl'></iframe>
+                <iframe src={`./pdfjs/web/viewer.html?file=${pdfUrl}`} className='h-[75vh] lg:h-[80vh] w-full rounded-xl'></iframe>
                 {/* editor button is hedden in viewer.css */}
             </div>}
         </div>
