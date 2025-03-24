@@ -2,6 +2,10 @@
 
 StackNotes is your ultimate learning and note management tool that brings together notes, PDFs, and YouTube playlists in one streamlined platform.
 
+## Web App
+
+Visit live app [Stack Notes](https://stacknotes.vercel.app)
+
 ## Features
 
 ### 🎯 Key Features
