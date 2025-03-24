@@ -13,7 +13,7 @@ export const getPlaylistData = async (link: string): Promise<false | {
             return false;
         }
         const data = await res.json();
-        const { title, html, author_name, author_url, thumbnail_url } = data;
+        const { title, html, author_name, thumbnail_url } = data;
         const div = document.createElement("div")
         div.innerHTML = html;
         const src = new URL((div.children[0] as HTMLIFrameElement).src);

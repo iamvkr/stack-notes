@@ -1,6 +1,6 @@
 /** currently this is not used in project! */
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const SearchAi = () => {
   const [inputData, setinputData] = useState("")

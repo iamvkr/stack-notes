@@ -81,6 +81,9 @@ const PlayCourse = () => {
     setCourses(updatedCOURSE);
     // updte to db:
     const res = await saveToDbCourses(updatedCOURSE);
+    if (res) {
+      console.log("db updated!");
+    }
   }
 
   return (
