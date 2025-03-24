@@ -88,21 +88,21 @@ const PlayCourse = () => {
 
   return (
     <>
-      <div className='MOBILE lg:hidden'>
-        <div className='h-[42vh]'>
+      <div className='MOBILE lg:hidden py-18'>
+        <div className='h-[44vh]'>
           <YouTube opts={{
             playerVars: {
               list: pid,
               listType: "playlist"
             }
           }}
-            iframeClassName='w-full h-[40vh]'
+            iframeClassName='w-full h-[42vh]'
             onReady={handleReady}
           />
         </div>
 
 
-        <div className='h-[50vh] overflow-y-auto w-full px-2'>
+        <div className='min-h-[50vh] w-full px-2'>
           {sectionData && setsectionData.length > 0 && sectionData.map((item, i) => (
             <div key={i} className='border p-2 my-2 rounded-2xl'>
               <div className="grid grid-cols-[15%_70%_10%] items-center">

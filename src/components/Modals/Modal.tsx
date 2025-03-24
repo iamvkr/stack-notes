@@ -150,7 +150,11 @@ const Modal = ({ isOpenModal, setisOpenModal, }: { isOpenModal: boolean, setisOp
                                 <p className='text-center flex w-full items-center justify-center h-full'>Drag and drop <br />{file ? file.name : "Click to upload files"} </p>
                                 <input type="file" className='hidden' id='fileInput' multiple={false} accept='image/*,.pdf' onChange={(e) => {
                                     if (e.target.files) {
-                                        setfile(e.target.files[0]);
+                                        if (e.target.files[0].type.includes("image") || e.target.files[0].type.includes("pdf")) {
+                                            setfile(e.target.files[0]);
+                                        } else {
+                                            toastMsg("Only pdf and images are supported!", "error");
+                                        }
                                     }
                                 }} />
                             </label>
