@@ -40,9 +40,10 @@ const OpenFile = () => {
                 </TransformWrapper>
             </div>}
 
-            {fileData && pdfUrl && <div className="p-2 w-full h-[80vh] lg:h-[85vh] flex items-center justify-center rounded-2xl">
+            {fileData && pdfUrl && <div className="p-2 w-full h-[80vh] lg:h-[85vh] flex flex-col items-center justify-center rounded-2xl">
                 <a href={`/pdfjs/web/viewer.html?file=${pdfUrl}`} target="_blank"
                 className='bg-primary px-8 py-2 text-black rounded-2xl'>View Pdf</a>
+
                 <iframe src={`/pdfjs/web/viewer.html?file=${pdfUrl}`} className='h-[75vh] lg:h-[80vh] w-full rounded-xl'></iframe>
                 {/* editor button is hedden in viewer.css */}
             </div>}

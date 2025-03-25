@@ -56,28 +56,8 @@
   ],
   "rewrites": [
     {
-      "source": "/profile",
-      "destination": "/"
-    },
-    {
-      "source": "/files/**",
-      "destination": "/"
-    },
-    {
-      "source": "/openFile/:id",
-      "destination": "/"
-    },
-    {
-      "source": "/course",
-      "destination": "/"
-    },
-    {
-      "source": "/course/:pid",
-      "destination": "/"
-    },
-    {
-      "source": "/about",
-      "destination": "/"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
