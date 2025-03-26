@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Button from '../Button';
 import { CourseDataInterface, usefileContext } from '../../context/FilesContext';
 import { getPlaylistData } from '../../utils/getPlaylistData';
@@ -7,6 +7,15 @@ import { saveToDbCourses } from '../../lib/db';
 const CreateCourse = ({ isOpenCourseModal, setisOpenCourseModal }: { isOpenCourseModal: boolean, setisOpenCourseModal: (isOpen: boolean) => void }) => {
   const [itemName, setItemName] = useState("");/** https://www.youtube.com/playlist?list=PLRBp0Fe2GpgmcS2npLZXJCyJxPdkwX4Bc */
   const { courses, setCourses, toastMsg } = usefileContext();
+
+  const inputRef = useRef<HTMLInputElement | null>(null)
+    useEffect(() => {
+        if (isOpenCourseModal) {
+            if (inputRef.current) { inputRef.current.focus() }
+        } else {
+            if (inputRef.current) { inputRef.current.blur() }
+        }
+    }, [isOpenCourseModal])
 
   const saveUser = async () => {
     if (!itemName.trim()) {
@@ -44,7 +53,7 @@ const CreateCourse = ({ isOpenCourseModal, setisOpenCourseModal }: { isOpenCours
       <div className="modal w-[85%]  border bg-dark-bg rounded-2xl p-4 animate-enter md:w-1/3 md:h-60" onClick={(e) => { e.stopPropagation() }}>
         <h2 className='text-xl font-bold mb-4'>Youtube Playlist Link</h2>
         <div className='my-2'>
-          <input value={itemName} onChange={(e) => { setItemName(e.target.value) }} type="text"
+          <input ref={inputRef} value={itemName} onChange={(e) => { setItemName(e.target.value) }} type="text"
             className='h-10 w-full border rounded-md ps-2 outline-none'
             placeholder='e.g. https://www.youtube.com/playlist?list='
           />

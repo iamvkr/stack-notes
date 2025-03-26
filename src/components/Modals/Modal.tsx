@@ -12,6 +12,15 @@ const Modal = ({ isOpenModal, setisOpenModal, }: { isOpenModal: boolean, setisOp
 
     const { files, setFiles, toastMsg } = usefileContext();
 
+    const inputRef = useRef<HTMLInputElement | null>(null)
+    useEffect(() => {
+        if (isOpenModal) {
+            if (inputRef.current) { inputRef.current.focus() }
+        } else {
+            if (inputRef.current) { inputRef.current.blur() }
+        }
+    }, [isOpenModal])
+
     const CreateFolder = async () => {
         // check file name:
         if (!itemName.trim()) {
@@ -135,7 +144,7 @@ const Modal = ({ isOpenModal, setisOpenModal, }: { isOpenModal: boolean, setisOp
                 <h2 className='text-xl font-bold mb-4'>{pathname === "/" ? "Create a New Folder" : "Add New File"}</h2>
                 <form onSubmit={(e) => { e.preventDefault() }}>
                     <div className='my-2'>
-                        <input value={itemName} onChange={(e) => { setItemName(e.target.value) }} type="text"
+                        <input ref={inputRef} value={itemName} onChange={(e) => { setItemName(e.target.value) }} type="text"
                             className='h-10 w-full border rounded-md ps-2 outline-none'
                             placeholder='Enter Name'
                         />

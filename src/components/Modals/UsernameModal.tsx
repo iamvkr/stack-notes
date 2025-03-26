@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Button from '../Button';
 import { usefileContext } from '../../context/FilesContext';
 
@@ -16,6 +16,16 @@ const UsernameModal = ({ isOpenUserModal, setisOpenUserModal }: { isOpenUserModa
     toastMsg("Success!", "success")
   }
 
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  useEffect(() => {
+    if (isOpenUserModal) {
+      if (inputRef.current) {inputRef.current.focus()}
+    }else{
+      if (inputRef.current) {inputRef.current.blur()}
+    }
+  }, [isOpenUserModal])
+
+
   return (isOpenUserModal &&
     <div className='fixed top-0 left-0 w-full h-screen bg-dark-bg/70 flex items-center justify-center '
       onClick={() => { setisOpenUserModal(!isOpenUserModal) }}>
@@ -23,7 +33,7 @@ const UsernameModal = ({ isOpenUserModal, setisOpenUserModal }: { isOpenUserModa
         <form onSubmit={(e) => { e.preventDefault() }}>
           <h2 className='text-xl font-bold mb-4'>Let's Get Started!</h2>
           <div className='my-2'>
-            <input value={itemName} onChange={(e) => { setItemName(e.target.value) }} type="text"
+            <input ref={inputRef} value={itemName} onChange={(e) => { setItemName(e.target.value) }} type="text"
               className='h-10 w-full border rounded-md ps-2 outline-none'
               placeholder='Enter a Username'
             />
