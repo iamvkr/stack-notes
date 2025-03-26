@@ -93,23 +93,23 @@ const OpenFile = () => {
                 </TransformWrapper>
 
                 <div className="nextBtns">
-                    {totalPages} / {currentpage +1} page
+                    {currentpage + 1} / {totalPages} page
                 </div>
                 <div className="w-full nextBtns flex gap-2 justify-between lg:justify-center">
-                    <button className='bg-primary px-8 py-2 flex items-center text-black rounded-2xl disabled:bg-primary/50' 
-                    disabled={currentpage === 0}
-                    onClick={() => {
-                        if (currentpage > 0) {
-                            setcurrentPage(currentpage - 1)
-                        }
-                    }}>prev</button>
-                    <button className='bg-primary px-8 py-2 flex items-center text-black rounded-2xl disabled:bg-primary/50' 
-                    disabled={currentpage === totalPages - 1}
-                    onClick={() => {
-                        if (currentpage < totalPages - 1) {
-                            setcurrentPage(currentpage + 1)
-                        }
-                    }}>next</button>
+                    <button className='bg-primary px-8 py-2 flex items-center text-black rounded-2xl disabled:bg-primary/50'
+                        disabled={currentpage === 0}
+                        onClick={() => {
+                            if (currentpage > 0) {
+                                setcurrentPage(currentpage - 1)
+                            }
+                        }}>prev</button>
+                    <button className='bg-primary px-8 py-2 flex items-center text-black rounded-2xl disabled:bg-primary/50'
+                        disabled={currentpage === totalPages - 1}
+                        onClick={() => {
+                            if (currentpage < totalPages - 1) {
+                                setcurrentPage(currentpage + 1)
+                            }
+                        }}>next</button>
                 </div>
 
 
