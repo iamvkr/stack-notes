@@ -10,15 +10,6 @@
       ]
     },
     {
-      "source": "/pdfjs/web/viewer.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
       "source": "/sw.js",
       "headers": [
         {
@@ -63,8 +54,10 @@
       ]
     }
   ],
-  "rewrites":{
-    "source":"/(.*)",
-    "destination":"/index.html"
-  }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

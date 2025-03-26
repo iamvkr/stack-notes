@@ -25,7 +25,6 @@ export default defineConfig({
       globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
       cleanupOutdatedCaches: true,
       clientsClaim: true,
-      globIgnores: ['**/viewer.html'],
     },
 
     devOptions: {
